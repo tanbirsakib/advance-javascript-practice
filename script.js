@@ -94,7 +94,7 @@ console.log(sakib.city);
 
 // -------------- passing function as arguments
 
-
+/*
 var years = [1996, 1997, 1995,2010,2005];
 
 function arrayCalc(arr,func){
@@ -128,6 +128,59 @@ var maxRate = arrayCalc(ages, maxHeartRate); // passing maxHeartRate function to
 console.log(ages);
 console.log(fullAges);
 console.log(maxRate);
+*/
+
+//--first class function returning function--//
+/** 
+function interviewQuestion(job){
+    if (job === 'teacher'){
+        return function(name){
+            console.log(name + ' Can you please explain the purpose of discrete mathematics?');
+        }
+    } else if(job === 'designer'){
+        return function(name){
+            console.log('Can you design a business card? ' + name);
+        }
+    } else {
+        return function(name){
+            console.log(name + 'What do you do?');
+        }
+    }
+}
+
+
+
+var teacherQuestion = interviewQuestion('teacher');
+var designerQuestion = interviewQuestion('designer');
+teacherQuestion('AKM Masum');
+designerQuestion('Tanbir Sakib');
+designerQuestion('Emon Younes');
+designerQuestion('Golam Hassan Tohin');
+
+interviewQuestion('teacher')('Kafi');
+*/
+ /*we can directly call two function one afer another.here first a function will be called than the return value with this function the another function will be called */
+
+function heightMeasure(height){
+    if (height >= 6){
+        return function(name){
+            console.log(name +' Congrats.You are selected ad Defender');
+        }
+    }else if(height >=5.6 && height <6){
+        return function(name){
+            console.log(name + ' hey boy.you are selected as midfielder');
+        }
+    }else{
+        return function(name){
+            console.log(name + ' You are selected as striker');
+        }
+    }
+} 
+
+heightMeasure(6.2)('Adnan');
+heightMeasure(5.5)('Tanbir Sakib');
+heightMeasure(5.7)('Anik Zaman');
+
 
 
 
