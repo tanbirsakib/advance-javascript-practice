@@ -22,8 +22,9 @@ console.log(younus.homeAddress);
 console.log(tuhin.homeAddress);
 */
 
-
-//-------------------objecet.create--------------//
+////////////////////////////////////////////////////
+////----------------objecet.create--------------////
+////////////////////////////////////////////////////
 
 /*
 var personProto = {
@@ -45,8 +46,9 @@ var younus = Object.create(personProto,{
     homeAddress : {value : 'Noapara,Raozan,Chittagong'}
 })
 */
-
-//-------------primitive vs objiect
+////////////////////////////////////
+//------primitive vs objiect------//
+////////////////////////////////////
 
 /*
 var student1 = {
@@ -68,8 +70,9 @@ console.log(student2.sex);    /*here we can see both objects will get the same r
 
 
 
-
-///------primitive vs function
+////////////////////////////////////////
+///------primitive vs function------///
+///////////////////////////////////////
 
 
 /*
@@ -91,8 +94,9 @@ console.log(age);
 console.log(sakib.city);
 */
 
-
-// -------------- passing function as arguments
+/////////////////////////////////////////////////
+// -----passing function as arguments-------- ///
+////////////////////////////////////////////////
 
 /*
 var years = [1996, 1997, 1995,2010,2005];
@@ -129,8 +133,9 @@ console.log(ages);
 console.log(fullAges);
 console.log(maxRate);
 */
-
+///////////////////////////////////////////////
 //--first class function returning function--//
+///////////////////////////////////////////////
 /** 
 function interviewQuestion(job){
     if (job === 'teacher'){
@@ -161,6 +166,10 @@ interviewQuestion('teacher')('Kafi');
 */
  /*we can directly call two function one afer another.here first a function will be called than the return value with this function the another function will be called */
 
+
+/////////////////////////////////////////////////////////////
+/************** Example of returning functions***************
+///////////////////////////////////////////////////////////// 
 function heightMeasure(height){
     if (height >= 6){
         return function(name){
@@ -181,10 +190,73 @@ heightMeasure(6.2)('Adnan');
 heightMeasure(5.5)('Tanbir Sakib');
 heightMeasure(5.7)('Anik Zaman');
 
-//my name is Muhammed Tanbir Hossen Sakib
+*/
 
 
+/////////////////////////////////////////////////////////
+/////////----Immediateley invoked function ------////////
+/////////////////////////////////////////////////////////
 
+/**  function game() {
+    var score =Math.random() * 10;
+    console.log(score >= 5);
+}
+game(); 
+
+(function() {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+})(); 
+
+(function(goodLuck) {
+    var score = Math.random() * 10;
+    console.log(score >= 5 - goodLuck);
+})(5);  //we can pass arguments here
+
+*/
+
+
+//////////////////////////////////////////////
+/////////////------CLOSURE-------/////////////
+//////////////////////////////////////////////
+
+/** 
+function retirement(retirementAge) {
+    var a = ' years left untill retirement'
+    return function(yearOfBirth){
+        var age = 2020 - yearOfBirth;
+        console.log((retirementAge - age) + a);
+    }
+}
+
+
+var retirementBangladesh = retirement(60);
+retirementBangladesh(1990);
+var retirementIndia = retirement(65);  
+retirementIndia(2000);        //here we can access variables from retirement funtion  even after calling it
+                                        //this the power of closure      
+var retirementUSA = retirement(70);
+retirementUSA(1980);
+*/
+
+/////////////////////////////////////////////////////////
+////////example of closure with previous code////////////
+////////////////////////////////////////////////////////
+/** 
+function interviewQuestion(job){
+    return function(name){ 
+    if (job === 'teacher'){
+        console.log(name + ', What do you like to teach?');
+        } else if(job === 'designer'){
+        console.log('Can you design a business card? ' + name);
+        } else {
+        console.log(name + 'What do you do?');
+        }
+    }
+}
+
+interviewQuestion('teacher')('Tanveer');
+*/
 
 
 
